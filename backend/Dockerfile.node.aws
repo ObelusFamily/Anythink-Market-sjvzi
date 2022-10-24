@@ -1,0 +1,12 @@
+FROM --platform=linux/amd64 node:16
+
+# Download wait-for-it script
+ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /wait-for-it.sh
+RUN chmod +x /wait-for-it.sh
+
+WORKDIR /usr/src
+COPY . .
+
+# Pre-install yarn packages
+WORKDIR /usr/src/backend
+RUN yarn install
