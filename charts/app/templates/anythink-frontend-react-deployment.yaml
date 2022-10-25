@@ -26,6 +26,8 @@ spec:
               value: development
             - name: PORT
               value: "3001"
+            - name: REACT_APP_BACKEND_URL
+              value: https://{{ .Release.Namespace }}-staging-api.anythink.market
           image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
           imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
           name: anythink-frontend-react
